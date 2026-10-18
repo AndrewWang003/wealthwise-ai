@@ -16,7 +16,7 @@ This was my first large project (December 2025 – January 2026, about 240 commi
 
 ## How it was built
 
-I designed the product and data model and directed AI coding tools (Firebase Studio, then Claude and Codex) to implement it, reviewing and testing each change in the running app. Much of the work went into correctness problems that only show up with real numbers: currency precision, cash calibration, safe deletes that keep balances consistent, and stopping charts from flickering during real-time updates.
+I designed the product and data model and directed AI coding agents (mainly Gemini in Firebase Studio) to implement it, reviewing and testing each change in the running app. Much of the work went into correctness problems that only show up with real numbers: currency precision, cash calibration, safe deletes that keep balances consistent, and stopping charts from flickering during real-time updates.
 
 ## Tech stack
 
