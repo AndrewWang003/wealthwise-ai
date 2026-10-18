@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read/write access to all documents for any authenticated user
+    // This is useful for development but highly insecure for production.
+    
+    // 🌊 WEALTH PULSE: User-specific pulses
+    match /wealth_pulses/{pulseId} {
+      // Allow reading individual documents
+      allow get: if request.auth != null && resource.data.userId == request.auth.uid;
+      
+      // Allow list queries with userId filter
+      allow list: if request.auth != null;
+      
+      // Allow write operations
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+    
+    // Price Cache
+    match /asset_prices/{document=**} {
+      allow read, write: if request.auth != null;
+    }
+
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

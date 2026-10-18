@@ -1,0 +1,757 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 5.9% 10%;
+  --radius: 0.5rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+}
+
+.dark {
+  --background: 0 0% 9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 12%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 12%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  --ring: 0 0% 83.9%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+}
+
+/* ✨ Aura Light Theme - 清新蓝紫浅色主题 */
+.theme-aura-light {
+  --background: 220 60% 97%;
+  --foreground: 240 60% 15%;
+  --card: 220 50% 99%;
+  --card-foreground: 240 60% 15%;
+  --popover: 220 60% 98%;
+  --popover-foreground: 240 60% 15%;
+  --primary: 220 90% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 30% 92%;
+  --secondary-foreground: 240 60% 15%;
+  --muted: 220 30% 94%;
+  --muted-foreground: 240 20% 45%;
+  --accent: 280 70% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 70% 50%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 30% 88%;
+  --input: 220 30% 88%;
+  --ring: 220 90% 50%;
+  --chart-1: 220 90% 50%;
+  --chart-2: 280 80% 55%;
+  --chart-3: 200 85% 50%;
+  --chart-4: 260 75% 60%;
+  --chart-5: 300 70% 55%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* 🌌 AURA THEME - CSS Variable Redefinition */
+  .theme-aura {
+    /* BASE: Deep Void Purple (H S L) */
+    --background: 265 50% 5%; /* #0f0518 - The Void */
+    --foreground: 210 40% 98%; /* White Text */
+
+    /* SURFACES: Quantum Glass (Semi-transparent) */
+    --card: 265 30% 10%; 
+    --card-foreground: 210 40% 98%;
+    --popover: 265 30% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* ACCENTS: Neon Violet */
+    --primary: 263 94% 66%; /* Electric Violet */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 265 30% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 265 20% 20%;
+    --muted-foreground: 215 20% 75%; /* Readable Grey */
+    --accent: 263 90% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 265 30% 20%; /* Subtle purple border */
+    --input: 265 30% 20%;
+    --ring: 263 94% 66%;
+
+    /* Charts: Vibrant purple spectrum */
+    --chart-1: 263 94% 66%;
+    --chart-2: 280 90% 60%;
+    --chart-3: 200 85% 55%;
+    --chart-4: 240 75% 65%;
+    --chart-5: 290 80% 60%;
+  }
+
+  /* 🌌 Aura Background Gradient */
+  .theme-aura body {
+    background-image: radial-gradient(circle at 50% 0%, #2e1065 0%, #0f0518 70%);
+    background-attachment: fixed;
+  }
+
+  /* 🪟 Quantum Glass Effects for Aura Theme */
+  .theme-aura aside > div,
+  .theme-aura .card,
+  .theme-aura [class*="card"],
+  .theme-aura .rounded-xl {
+    background: rgba(20, 20, 35, 0.5) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+    backdrop-filter: blur(20px) saturate(140%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* ⚡ Neon Button Glows */
+  .theme-aura button[class*="bg-primary"],
+  .theme-aura .bg-primary {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .theme-aura button[class*="bg-primary"]:hover,
+  .theme-aura .bg-primary:hover {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.7);
+  }
+
+  /* 🌌 AURA FLUX THEME - Enhanced Nebula Variant */
+  .theme-aura-flux {
+    /* BASE: Deepest Void */
+    --background: 265 50% 5%; /* #0f0518 */
+    --foreground: 210 40% 98%; /* White */
+
+    /* SURFACE: Quantum Glass Base (Dark & Transparent) */
+    --card: 265 30% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 265 30% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* ACCENTS: Neon Flux */
+    --primary: 263 94% 66%; /* Electric Violet */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 265 30% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 265 20% 20%;
+    --muted-foreground: 215 20% 75%;
+    --accent: 263 90% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 265 30% 20%;
+    --input: 265 30% 20%;
+    --ring: 263 94% 66%;
+
+    /* Charts: Vibrant purple spectrum */
+    --chart-1: 263 94% 66%;
+    --chart-2: 280 90% 60%;
+    --chart-3: 200 85% 55%;
+    --chart-4: 240 75% 65%;
+    --chart-5: 290 80% 60%;
+  }
+
+  /* 🌌 Aura Flux Background - Enhanced Nebula */
+  .theme-aura-flux body {
+    background-color: #0f0518 !important;
+    background-image: 
+      radial-gradient(circle at 50% 0%, #2e1065 0%, transparent 60%), 
+      radial-gradient(circle at 100% 100%, #3b0764 0%, transparent 50%) !important;
+    background-attachment: fixed !important;
+  }
+
+  /* 🔪 Aura Flux - Component Transparency */
+  .theme-aura-flux aside,
+  .theme-aura-flux main,
+  .theme-aura-flux .card,
+  .theme-aura-flux .bg-card,
+  .theme-aura-flux .bg-background {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* 🪟 Aura Flux - Quantum Glass Effects */
+  .theme-aura-flux .card,
+  .theme-aura-flux aside > div,
+  .theme-aura-flux [class*="card"],
+  .theme-aura-flux .rounded-xl {
+    background: rgba(15, 5, 24, 0.6) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(140%) !important;
+    backdrop-filter: blur(20px) saturate(140%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+  }
+
+  /* ⚡ Aura Flux - Neon Button Glows */
+  .theme-aura-flux button[class*="bg-primary"],
+  .theme-aura-flux .bg-primary {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .theme-aura-flux button[class*="bg-primary"]:hover,
+  .theme-aura-flux .bg-primary:hover {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.7);
+  }
+
+  /* 🔧 Aura Flux Polish: Fix Text Contrast */
+  .theme-aura-flux .text-gray-900,
+  .theme-aura-flux .text-gray-700,
+  .theme-aura-flux .text-slate-900 {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .theme-aura-flux .text-gray-500,
+  .theme-aura-flux .text-muted-foreground {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* 🪟 Aura Flux Polish: Fix Popovers, Dropdowns, and Sheets */
+  .theme-aura-flux [data-radix-popper-content-wrapper],
+  .theme-aura-flux [role="dialog"],
+  .theme-aura-flux .sheet-content,
+  .theme-aura-flux .popover-content,
+  .theme-aura-flux [data-radix-dialog-content],
+  .theme-aura-flux [data-radix-popover-content] {
+    background-color: rgba(15, 10, 25, 0.85) !important; /* Deep dark glass */
+    -webkit-backdrop-filter: blur(24px) !important;
+    backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+  }
+
+  /* ⚠️ CRITICAL: Force Global Text Contrast (Anti-Stealth Protocol) */
+  .theme-aura-flux h1,
+  .theme-aura-flux h2,
+  .theme-aura-flux h3,
+  .theme-aura-flux h4,
+  .theme-aura-flux h5,
+  .theme-aura-flux h6,
+  .theme-aura-flux .text-gray-900,
+  .theme-aura-flux .text-slate-900,
+  .theme-aura-flux .font-bold,
+  .theme-aura-flux .font-semibold,
+  .theme-aura-flux .font-medium {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.3); /* Subtle neon glow */
+  }
+
+  .theme-aura-flux .text-gray-500,
+  .theme-aura-flux .text-gray-600,
+  .theme-aura-flux .text-muted-foreground {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  /* Target links and logos specifically */
+  .theme-aura-flux a:not(.btn),
+  .theme-aura-flux .logo-text,
+  .theme-aura-flux p,
+  .theme-aura-flux span,
+  .theme-aura-flux label {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  /* 🔓 Make Top Header Transparent */
+  .theme-aura-flux header,
+  .theme-aura-flux .top-nav-container,
+  .theme-aura-flux nav {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* 🌫️ Fix Right Sidebar White Fog Gradient */
+  .theme-aura-flux .right-sidebar-container,
+  .theme-aura-flux aside:last-child {
+    background: rgba(15, 5, 24, 0.6) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    backdrop-filter: blur(20px) !important;
+  }
+
+  /* Fix gradient mask to fade to dark instead of white */
+  .theme-aura-flux .fade-mask-bottom,
+  .theme-aura-flux .gradient-mask {
+    background: linear-gradient(to bottom, transparent, rgba(15, 5, 24, 1)) !important;
+  }
+
+  /* 💬 Redesign & Resize Chat Input Box */
+  .theme-aura-flux .chat-input-container textarea,
+  .theme-aura-flux footer textarea,
+  .theme-aura-flux textarea[placeholder*="message"],
+  .theme-aura-flux textarea[placeholder*="chat"] {
+    min-height: 150px !important; /* Much taller for desktop */
+    background-color: rgba(255, 255, 255, 0.05) !important; /* Darker input background */
+    border: 1px solid rgba(139, 92, 246, 0.3) !important; /* Neon purple border */
+    color: white !important;
+    border-radius: 12px !important;
+  }
+
+  /* ⚡ THE NUKE: Aggressively Strip Solid Backgrounds from Settings Menu */
+  .theme-aura-flux aside nav a,
+  .theme-aura-flux aside nav button,
+  .theme-aura-flux .sidebar-nav-item,
+  .theme-aura-flux .settings-nav a,
+  .theme-aura-flux .settings-sidebar a {
+    background-color: transparent !important; /* Kill the white block */
+    background-image: none !important;
+    border: none !important;
+    margin-bottom: 2px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none !important; /* Remove any default button shadows */
+  }
+
+  /* 🌟 THE BEAM: Active State - Neon Beam Effect */
+  .theme-aura-flux aside nav a[data-state="active"],
+  .theme-aura-flux aside nav a.bg-muted, /* This class is the culprit */
+  .theme-aura-flux aside nav button[data-state="active"],
+  .theme-aura-flux .settings-nav a[data-state="active"],
+  .theme-aura-flux nav a[aria-current='page'] {
+    /* Transparent background base */
+    background-color: transparent !important;
+    
+    /* The Beam Gradient: Strong Violet Left -> Transparent Right */
+    background-image: linear-gradient(90deg, rgba(139, 92, 246, 0.25) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 100%) !important;
+    
+    /* The Glowing Anchor */
+    border-left: 3px solid #8b5cf6 !important;
+    border-radius: 0 6px 6px 0 !important; /* Soften right edge */
+    
+    /* Text Glow */
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    box-shadow: none !important;
+    
+    /* Reset other borders */
+    border-top: none !important;
+    border-bottom: none !important;
+    border-right: none !important;
+  }
+
+  /* 👻 Hover State - Ghost Light */
+  .theme-aura-flux aside nav a:hover:not([data-state="active"]),
+  .theme-aura-flux aside nav button:hover:not([data-state="active"]),
+  .theme-aura-flux .settings-nav a:hover:not([data-state="active"]) {
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, transparent 100%) !important;
+    background-color: transparent !important;
+    color: #ffffff !important;
+  }
+
+  /* 📝 Text Cleanup - Inactive Items */
+  .theme-aura-flux aside nav a:not([data-state="active"]),
+  .theme-aura-flux aside nav button:not([data-state="active"]),
+  .theme-aura-flux .settings-nav a:not([data-state="active"]) {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+
+  /* 🔘 Fix Toggle Switches - Neon Switch Design */
+  /* OFF State - The Unlit Tube (Dark Glass) */
+  .theme-aura-flux button[role="switch"][data-state="unchecked"] {
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Subtle dark glass */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    cursor: pointer !important;
+  }
+
+  /* ON State - The Neon Energy (Glowing Violet) */
+  .theme-aura-flux button[role="switch"][data-state="checked"] {
+    background-color: #8b5cf6 !important; /* Electric Violet */
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.6) !important; /* The Glow */
+  }
+
+  /* Switch Thumb - Always White and Distinct */
+  .theme-aura-flux button[role="switch"] span[data-state] {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* 🏷️ Fix Broken White Tabs - Dark Glass Control Pills */
+  /* The Container - Dark Glass Trough */
+  .theme-aura-flux div[role="tablist"],
+  .theme-aura-flux .tabs-list {
+    background-color: rgba(0, 0, 0, 0.4) !important; /* Dark semi-transparent */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Subtle rim */
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 4px !important;
+    border-radius: 99px !important; /* Pill shape container */
+  }
+
+  /* Inactive Tabs - Quiet & Clean */
+  .theme-aura-flux button[role="tab"],
+  .theme-aura-flux .tabs-trigger {
+    background-color: transparent !important;
+    color: rgba(255, 255, 255, 0.5) !important; /* Dimmed text */
+    border-radius: 99px !important; /* Round pills */
+    transition: all 0.3s ease !important;
+  }
+
+  /* Hover State */
+  .theme-aura-flux button[role="tab"]:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* Active State - Neon Energy Pill */
+  .theme-aura-flux button[role="tab"][data-state="active"],
+  .theme-aura-flux .tabs-trigger[data-state="active"] {
+    background-color: #8b5cf6 !important; /* Electric Violet */
+    color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5) !important; /* Glow effect */
+    font-weight: 600 !important;
+    text-shadow: none !important;
+  }
+
+  /* 🔋 Energy Bars: Neon Gradient Progress Indicators */
+  /* CSS Override for the Progress Indicator */
+  .theme-aura-flux .progress-indicator,
+  .theme-aura-flux [role="progressbar"] > div {
+    background: linear-gradient(90deg, #7c3aed 0%, #d8b4fe 100%) !important; /* Deep Violet to Bright Neon */
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5) !important; /* The Glow */
+    border-radius: 99px !important;
+  }
+
+  /* CSS Override for the Progress Track */
+  .theme-aura-flux [role="progressbar"],
+  .theme-aura-flux .progress-root {
+    background-color: rgba(255, 255, 255, 0.05) !important; /* Dark Glass */
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* 🌌 Neon Bloom: Active Theme Card State */
+  /* The "Active" State - Neon Halo */
+  .theme-aura-flux .theme-card[data-state="checked"] {
+    background-color: rgba(139, 92, 246, 0.15) !important; /* Subtle inner purple tint */
+    border: 2px solid #8b5cf6 !important; /* Electric Violet */
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3) !important; /* The Glow */
+    color: #ffffff !important;
+  }
+
+  /* The "Inactive" State - Frosted Glass */
+  .theme-aura-flux .theme-card:not([data-state="checked"]) {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+  
+  .theme-aura-flux .theme-card:not([data-state="checked"]):hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    cursor: pointer;
+  }
+
+  /* --------------------------------------------------------- */
+  /* ⚡ Universal Interactive Physics: The Beam & The Glow      */
+  /* --------------------------------------------------------- */
+
+  /* 1. The Beam: List Items (Dropdowns, Selects, Command) */
+  .theme-aura-flux [role="menuitem"],
+  .theme-aura-flux [role="option"],
+  .theme-aura-flux .cmdk-item {
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* Hover/Focus State: The Beam */
+  .theme-aura-flux [role="menuitem"]:focus, 
+  .theme-aura-flux [role="menuitem"]:hover,
+  .theme-aura-flux [role="option"][data-highlighted],
+  .theme-aura-flux [role="option"]:focus,
+  .theme-aura-flux .cmdk-item[data-selected="true"] {
+    /* 1. Transparent Base with Gradient */
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.2) 0%, transparent 100%) !important;
+    background-color: transparent !important;
+
+    /* 2. The Anchor Border (The Beam Source) */
+    border-left: 3px solid #8b5cf6 !important;
+
+    /* 3. Text Glow */
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+
+    /* 4. Remove default radius on left to attach beam */
+    border-top-left-radius: 1px !important;
+    border-bottom-left-radius: 1px !important;
+  }
+
+  /* 2. Neon Glow: Standard Buttons */
+  /* Primary Buttons - High Energy */
+  .theme-aura-flux button.bg-primary,
+  .theme-aura-flux .btn-primary {
+    box-shadow: 0 0 0 transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-aura-flux button.bg-primary:hover {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6) !important; /* Expansion of light */
+    transform: translateY(-1px); /* Slight lift */
+  }
+
+  /* Ghost/Secondary Buttons - Low Energy */
+  .theme-aura-flux button.bg-secondary,
+  .theme-aura-flux button.bg-muted {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .theme-aura-flux button.bg-secondary:hover,
+  .theme-aura-flux button.bg-muted:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2) !important;
+  }
+
+  /* --------------------------------------------------------- */
+  /* 👤 User Profile: Flashbang Fix & Polish                   */
+  /* --------------------------------------------------------- */
+
+  /* 1. The Container (Dropdown Content) */
+  .theme-aura-flux [data-radix-popper-content-wrapper] div[role="menu"],
+  .theme-aura-flux .user-dropdown-content {
+    background-color: rgba(15, 10, 25, 0.95) !important; /* Deep Void, almost opaque */
+    -webkit-backdrop-filter: blur(24px) !important;
+    backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(139, 92, 246, 0.2) !important; /* Purple rim */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+    border-radius: 12px !important;
+    padding: 6px !important;
+    min-width: 220px !important;
+  }
+
+  /* 2. Text & User Info Readability */
+  .theme-aura-flux .user-dropdown-header,
+  .theme-aura-flux [role="menu"] .font-medium {
+    color: #ffffff !important;
+  }
+
+  .theme-aura-flux [role="menu"] .text-muted-foreground {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* 3. Dropdown Items: Apply "The Beam" Logic (already covered by role="menuitem" global rule), 
+     but adding specific cursor/color enforcement just in case */
+  .theme-aura-flux [role="menuitem"] {
+    color: rgba(255, 255, 255, 0.8) !important;
+    cursor: pointer !important;
+  }
+
+  /* 4. The Trigger Button (Avatar) */
+  .theme-aura-flux button:has([alt="User"]),
+  .theme-aura-flux .user-avatar-trigger {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .theme-aura-flux button:has([alt="User"]):hover,
+  .theme-aura-flux .user-avatar-trigger:hover {
+    border-color: #8b5cf6; /* Purple glow on hover */
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+  }
+
+  /* --------------------------------------------------------- */
+  /* ⚓ User Gravity Anchor: Sidebar Footer Identity Card       */
+  /* --------------------------------------------------------- */
+  
+  .theme-aura-flux .sidebar-footer-user {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: auto;
+    border: 1px solid transparent; /* Prepare for border transitions */
+  }
+
+  /* Hover State - The Rising Beam */
+  .theme-aura-flux .sidebar-footer-user:hover {
+    background: linear-gradient(0deg, rgba(139, 92, 246, 0.15) 0%, transparent 100%) !important; /* Subtle updraft */
+    border-bottom: 2px solid #8b5cf6 !important; /* Bottom anchor glow */
+    box-shadow: 0 -10px 30px rgba(139, 92, 246, 0.1) !important;
+  }
+
+  .theme-aura-flux .sidebar-footer-user .user-name {
+    color: #ffffff !important;
+    font-weight: 500;
+  }
+
+  .theme-aura-flux .sidebar-footer-user .user-email {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 0.8rem;
+  }
+
+  /* --------------------------------------------------------- */
+  /* 🪄 Menu Unification: Dropdown = Sidebar Level 2           */
+  /* --------------------------------------------------------- */
+
+  /* 1. Kill Heavy Lines (The Table Look) */
+  .theme-aura-flux [role="separator"], 
+  .theme-aura-flux .dropdown-separator {
+    display: none !important; /* Cleaner look, use spacing instead */
+  }
+
+  /* 2. Polish the Container (Quantum Glass) */
+  .theme-aura-flux [data-radix-popper-content-wrapper] div[role="menu"] {
+    background-color: rgba(10, 5, 20, 0.9) !important; /* Deep Void */
+    -webkit-backdrop-filter: blur(24px) !important;
+    backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5) !important; /* Shadow pointing up */
+    padding: 6px !important;
+    border-radius: 12px !important;
+    min-width: 240px !important; /* Slightly wider */
+  }
+
+  /* 3. Apply "The Beam" to Items (Sidebar Consistency) */
+  .theme-aura-flux [role="menuitem"] {
+    margin: 4px 0 !important; /* Add breathing room */
+    border-radius: 4px !important;
+    padding: 10px 12px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    border: none !important; /* Kill internal borders */
+    
+    /* Text alignment with icon */
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Hover State: The Beam */
+  .theme-aura-flux [role="menuitem"]:hover,
+  .theme-aura-flux [role="menuitem"]:focus {
+    /* Purple Gradient Background */
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.15) 0%, transparent 100%) !important;
+    
+    /* The Left Anchor Beam */
+    border-left: 3px solid #8b5cf6 !important;
+    
+    /* Spacing compensation */
+    padding-left: 9px !important; /* 12px - 3px border */
+    
+    /* Text Glow */
+    color: #ffffff !important;
+  }
+
+  /* 4. Icon Coloring */
+  .theme-aura-flux [role="menuitem"] svg {
+    opacity: 0.7;
+    margin-right: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .theme-aura-flux [role="menuitem"]:hover svg,
+  .theme-aura-flux [role="menuitem"]:focus svg {
+    opacity: 1;
+    color: #8b5cf6; /* Icon turns purple on hover */
+  }
+
+  /* --------------------------------------------------------- */
+  /* 🛡️ Login Contrast Fix: Invisible Input Text               */
+  /* --------------------------------------------------------- */
+
+  /* CSS Fix for Dark Inputs */
+  .theme-aura-flux input, 
+  .theme-aura-flux .auth-input {
+    color: #ffffff !important; /* Force readable text */
+    caret-color: #ffffff !important; /* White cursor */
+  }
+
+  .theme-aura-flux input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  /* Fix Webkit Autofill Flash (The Yellow Box) */
+  .theme-aura-flux input:-webkit-autofill,
+  .theme-aura-flux input:-webkit-autofill:hover, 
+  .theme-aura-flux input:-webkit-autofill:focus, 
+  .theme-aura-flux input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #0f0518 inset !important; /* Match theme background */
+    -webkit-text-fill-color: white !important; /* Force white text even in autofill */
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+
+
+
+
+
+
+
+/* 🎨 智能感应式滚动条样式 */
+@layer components {
+  /* ScrollArea 滚动条轨道 */
+  [data-radix-scroll-area-scrollbar] {
+    @apply w-1.5 transition-opacity duration-300;
+    opacity: 0;
+  }
+
+  /* 悬停时显示滚动条 */
+  .group:hover [data-radix-scroll-area-scrollbar],
+  [data-radix-scroll-area-scrollbar][data-state="visible"] {
+    opacity: 1;
+  }
+
+  /* 滚动条滑块 */
+  [data-radix-scroll-area-thumb] {
+    @apply rounded-full backdrop-blur-md;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* 深色主题下的滚动条 */
+  .dark [data-radix-scroll-area-thumb] {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* 悬停时滚动条滑块高亮 */
+  [data-radix-scroll-area-thumb]:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .dark [data-radix-scroll-area-thumb]:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
